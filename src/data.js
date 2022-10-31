@@ -1,13 +1,26 @@
 const List = {
   list: [
-    {
-      id: 1,
-      title: "Read some news",
-    },
-    {
-      id: 2,
-      title: "salut",
-    },
+    [
+      {
+        id: 1,
+        title: "Read some news",
+      },
+      {
+        id: 2,
+        title: "boubou",
+      },
+    ],
+    [
+      {
+        id: 2,
+        title: "salut",
+      },
+
+      {
+        id: 3,
+        title: "azeaz",
+      },
+    ],
   ],
   getList: function () {
     return (
