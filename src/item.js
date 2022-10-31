@@ -15,14 +15,20 @@ function item(props) {
             <div className="ham"></div>
             <div className="ham"></div>
           </div>
-          <div className="title-content">Step</div>
+          <div className="title-content">{props.list.title}</div>
         </div>
         <DragDropContext
           onDragEnd={(param) => {
             const srcI = param.source.index;
             const desI = param.destination?.index;
             if (desI !== null) {
-              props.list.splice(desI, 0, props.list.splice(srcI, 1)[0]);
+              props.list.list.splice(
+                desI,
+                0,
+                props.list.list.splice(srcI, 1)[0]
+              );
+              const index = list.findIndex((ele) => ele.id === props.list.id);
+              list[index] = props.list;
               List.saveList(list);
             }
           }}
@@ -31,7 +37,7 @@ function item(props) {
             {(provided, _) => (
               <div ref={provided.innerRef} {...provided.droppableProps}>
                 <div className="mini-cards">
-                  {props.list.map((item, i) => (
+                  {props.list.list.map((item, i) => (
                     <Draggable
                       key={item.id}
                       draggableId={"draggable-" + item.id}
@@ -71,10 +77,6 @@ function item(props) {
             )}
           </Droppable>
         </DragDropContext>
-      </div>
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <div className="line"></div>
-        <i class="arrow down"></i>
       </div>
     </>
   );

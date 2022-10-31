@@ -43,7 +43,7 @@
   border-radius: 10px;
   min-height: 75px;
   padding: 20px;
-  /* margin-bottom: 20px; */
+  margin-bottom: 20px;
 }
 .title-wrapper {
   display: flex;
